@@ -6,7 +6,16 @@
 </head>
 <body>
     Great Job!
+    <form action="/add_tweet" method="POST">
+        <input type="text" name="title" placeholder="Write title">
+        <br>
+        <input type="text" name="tweet" maxlength=280 placeholder="Write tweet here..."/>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
 
+    </form>
+    
     <a href="/signout"><button>sign out</button></a>
 </body>
 </html>
