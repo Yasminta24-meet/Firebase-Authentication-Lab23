@@ -11,6 +11,7 @@ config = {
   'messagingSenderId': "995722538562",
   'appId': "1:995722538562:web:00b30ae959cf8e859d47db",
   'measurementId': "G-EH46RK4LDP"
+  "databaseURL" : "https://mini-cs-1-default-rtdb.europe-west1.firebasedatabase.app/"
 }
 
 firebase= pyrebase.initialize_app(config)
@@ -40,28 +41,13 @@ def signin():
 def signup():
     error=''
     if request.method == 'POST':
-        # email= request.form['email']
-        # bio = request.form['bio']
-        # username= request.form['usernamee']
-        # fullname= request.form['full_name']
-        # password = request.form['password']
-        # user = {'email':email, 'bio':bio, 'usernamee':username, 'full_name':fullname}
         try:
-            email= request.form['email']
-            print('d')
-            bio = request.form['bio']
-            print('d')
-            username= request.form['usernamee']
-            print('d')
-            fullname= request.form['full_name']
-            print('d')
-            password = request.form['password']
-            print('d')
+            email= request.form['email']        
+            bio = request.form['bio']           
+            username= request.form['usernamee']           
+            fullname= request.form['full_name']           
+            password = request.form['password']           
             user = {'email':email, 'bio':bio, 'usernamee':username, 'full_name':fullname}
-            print('d')
-            print('d')
-            
-            print('d')
             login_session['user'] = auth.create_user_with_email_and_password(email, password)
             UID = login_session['user']['localId']
             db.child('User').child(UID).set(user)
